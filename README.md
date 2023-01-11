@@ -18,5 +18,6 @@ The application has a simple GUI with a file explorer from where you can select 
 * The ability to change the name of the output file.
 ### Limitations
 Currently, the application only supports merging of PDF files, it doesn't support other file types.
-
+### License
+This application is licensed under the [MIT](https://github.com/mhmmdbduh/MergePDF/blob/main/License) License. This means that you are free to use, modify, and distribute the software as long as you include the copyright notice and the license text in all copies or substantial portions of the software.
 Please let me know in case of any questions or issues with the application.
