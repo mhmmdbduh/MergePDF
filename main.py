@@ -71,21 +71,43 @@ def merge_pdf():
 def merge_button_clicked():
     # Call the merge_pdf() function to start the merge process
     merge_pdf()
-
+palet = ["#BBDEF0","#235789","#F58F29"]
 root = tk.Tk()
-root.geometry("600x250")
+#root.geometry("600x250")
 root.title("Merge PDFs")
+root.eval("tk::PlaceWindow . center")
+frame1 = tk.Frame(root, width=600, height=250, bg=palet[0])
+frame1.grid(row=0, column=0)
+
 # Create a label with instructions on how to use the application
-label = tk.Label(root, text="""Welcome! Please select the PDF file(s) you wish to merge.
+label = tk.Label(frame1, 
+                 text="""Welcome! This app where you can choose any pdf files you wish to merge.
 
 To use the application:
 1. Click the 'Select PDFs' button.
 2. Choose the files that you want to merge.
 3. Select the destination folder where you want to save the merged files.
-4. Wait until the message "Files merged successfully!" is displayed.""", font=('Fira Code', 8) )
+4. Wait until the message "Files merged successfully!" is displayed.""", 
+                 font=('Fira Code', 10),
+                 bg=palet[1], 
+                 padx=20, pady=20,
+                 foreground='white')
 label.pack(padx=20, pady=20)
-merge_button = tk.Button(root, text="Select PDFs", command=merge_button_clicked)
+merge_button = tk.Button(frame1, 
+                         text="Select PDFs",
+                         bg=palet[2],
+                         height=1, 
+                         width=60,
+                         font=('montserrat', 12), 
+                         relief="solid",
+                         padx=5, pady=10,
+                         command=merge_button_clicked)
 merge_button.pack(padx=20, pady=10)
-label = tk.Label(root, text="""made by <3 by Abduh """, font=('Fira Code', 8) )
+label = tk.Label(frame1, 
+                    text="""made by <3 by Abduh """, 
+                    font=('Fira Code', 12),
+                    padx=150, pady=10,
+                    bg=palet[0], 
+                    foreground=palet[1])
 label.pack(padx=0, pady=20)
 root.mainloop()
