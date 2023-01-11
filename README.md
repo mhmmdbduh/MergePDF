@@ -1,5 +1,5 @@
 # PDF Merger
-This application is a simple tool that allows you to merge multiple PDF files into a single document. The application is written in Python, and makes use of the PyPDF2 library to handle PDF files and the Tkinter library for creating the graphical user interface.
+This application is a simple tool that allows you to merge multiple PDF files into a single document. The application is written in Python, and makes use of the PyPDF2 library to handle PDF files and the Tkinter library for creating the graphical user interface. Will be availiable as executable file in the near future.
 
 ### How to use
 To use the application, you'll need to have Python and the PyPDF2 and Tkinter libraries installed on your computer.
@@ -20,4 +20,7 @@ The application has a simple GUI with a file explorer from where you can select 
 Currently, the application only supports merging of PDF files, it doesn't support other file types.
 ### License
 This application is licensed under the [MIT](https://github.com/mhmmdbduh/MergePDF/blob/main/License) License. This means that you are free to use, modify, and distribute the software as long as you include the copyright notice and the license text in all copies or substantial portions of the software.
+
 Please let me know in case of any questions or issues with the application.
+
+made by ❤️ Muhammad Abduh
