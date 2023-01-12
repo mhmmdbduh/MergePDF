@@ -2,7 +2,11 @@ import os
 from PyPDF2 import PdfMerger
 import tkinter as tk
 from tkinter import filedialog, messagebox
+import emoji
 
+def clear_widget(frame):
+    for widget in frame.winfo_children():
+        widget.destroy()
 
 # Function to open the file dialog and get the selected file paths
 def open_files():
@@ -71,19 +75,59 @@ def merge_pdf():
 def merge_button_clicked():
     # Call the merge_pdf() function to start the merge process
     merge_pdf()
+def on_closing():
+    root.destroy()
 palet = ["#BBDEF0","#235789","#F58F29"]
 root = tk.Tk()
 #root.geometry("600x250")
 root.title("Merge PDFs")
 root.eval("tk::PlaceWindow . center")
-frame1 = tk.Frame(root, width=600, height=250, bg=palet[0])
-frame1.grid(row=0, column=0)
-
+def load_frame1():
+    clear_widget(frame2)
+    frame1.tkraise()
+    #frame1.pack_propagate(False)
 # Create a label with instructions on how to use the application
-label = tk.Label(frame1, 
-                 text="""Welcome! This app where you can choose any pdf files you wish to merge.
+    greeting = tk.Label(frame1,    
+                 text="""Welcome! This app where you can choose any pdf files you wish to merge.""", 
+                 font=('Fira Code', 10),
+                 bg=palet[1], 
+                 padx=20, pady=20,
+                 foreground='white')
+    greeting.pack(padx=20, pady=20)
+    merge_button = tk.Button(frame1, 
+                            text="Select PDFs",
+                            bg=palet[2],
+                            height=1, 
+                            width=60,
+                            font=('montserrat', 12), 
+                            relief="solid",
+                            padx=5, pady=10,
+                            command=merge_button_clicked)
+    merge_button.pack(padx=20, pady=10) 
+    instruction_button = tk.Button(frame1, 
+                            text="How to Use?",
+                            bg=palet[2],
+                            height=1, 
+                            width=60,
+                            font=('montserrat', 12), 
+                            relief="solid",
+                            padx=5, pady=10,
+                            command=load_frame2).pack(padx=20,pady=20)
+    signature = tk.Label(frame1, 
+                    text=emoji.emojize('Made with :black_heart: by Abduh', variant="emoji_type"), 
+                    font=('Fira Code', 12),
+                    padx=150, pady=10,
+                    bg=palet[0], 
+                    foreground=palet[1])
+    signature.pack(padx=0, pady=20)
 
-To use the application:
+def load_frame2():
+    frame2.pack_propagate(False)
+    clear_widget(frame1)
+    frame2.tkraise()
+    label = tk.Label(frame2,    
+                 text="""To use the application:
+
 1. Click the 'Select PDFs' button.
 2. Choose the files that you want to merge.
 3. Select the destination folder where you want to save the merged files.
@@ -92,22 +136,34 @@ To use the application:
                  bg=palet[1], 
                  padx=20, pady=20,
                  foreground='white')
-label.pack(padx=20, pady=20)
-merge_button = tk.Button(frame1, 
-                         text="Select PDFs",
-                         bg=palet[2],
-                         height=1, 
-                         width=60,
-                         font=('montserrat', 12), 
-                         relief="solid",
-                         padx=5, pady=10,
-                         command=merge_button_clicked)
-merge_button.pack(padx=20, pady=10)
-label = tk.Label(frame1, 
-                    text="""made by <3 by Abduh """, 
+    label.pack(padx=20, pady=20)
+
+    back_button = tk.Button(frame2, 
+                            text="Back",
+                            bg=palet[2],
+                            height=1, 
+                            width=60,
+                            font=('montserrat', 12), 
+                            relief="solid",
+                            padx=5, pady=10,
+                            command=load_frame1)
+    back_button.pack(padx=20, pady=10)
+    signature = tk.Label(frame2, 
+                    text=emoji.emojize('Made with :black_heart: by Abduh', variant="emoji_type"), 
                     font=('Fira Code', 12),
                     padx=150, pady=10,
                     bg=palet[0], 
                     foreground=palet[1])
-label.pack(padx=0, pady=20)
+    signature.pack(padx=0, pady=20)
+
+    
+ # Create frame widget   
+frame1 = tk.Frame(root, width=600, height=250, bg=palet[0])
+frame2 = tk.Frame(root,  bg=palet[0])
+
+for frame in (frame1, frame2):
+    frame.grid(row=0, column=0, sticky="nesw")
+
+load_frame1()
+#run app
 root.mainloop()
