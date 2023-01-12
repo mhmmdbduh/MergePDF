@@ -81,7 +81,7 @@ palet = ["#96CBEE","#BADBDE","#FFAD0A","#032425"]
 font = "Times New Roman"
 root = tk.Tk()
 #root.state('zoomed')
-root.title("Merge PDFs")
+root.title("PDF Merger")
 root.resizable(False,False)
 root.eval("tk::PlaceWindow . center")
 def load_frame1():
