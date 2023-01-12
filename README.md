@@ -11,7 +11,8 @@ To use the application, you'll need to have Python and the PyPDF2 and Tkinter li
 * Wait until the message "Files merged successfully!" is displayed.
 
 The application has a simple GUI with a file explorer from where you can select the PDF files you want to merge. Once selected, the application will merge all selected files into a single PDF, in the order that you have selected them. The output file will be in the destination folder script and will be named as filename you choose.
-
+### How to download the app
+you can get the app by heading to [gumroad](https://mhmmdbduh.gumroad.com/l/pdfmerger). 
 ### Features
 * The application has a simple and user-friendly interface.
 * Support for merging multiple PDF files into a single document.
